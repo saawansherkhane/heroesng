@@ -1,0 +1,46 @@
+<br>
+<div class="ui-g">
+  <div class="ui-md-5 cont">
+    <h2>Customer Form</h2>
+    <!--<form (ngSubmit)="onSubmit()" #branchForm="ngForm">-->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required
+             [(ngModel)]="name" name="name" #customername/>
+
+      <label for="name">Email</label>
+      <input type="text" class="form-control" id="email" required
+             [(ngModel)]="email" name="email" #customeremail/>
+
+      <label for="name">Phone</label>
+      <input type="text" class="form-control" id="phone" required
+             [(ngModel)]="phone" name="phone" #customerphone/>
+    </div>
+    <button type="submit" class="button" (click)="onSubmitcustomer()">Submit</button>
+    <!--<button type="button" class="btn btn-default" (click)="newHero(); branchForm.reset()">New Hero</button>-->
+    <!--</form>-->
+  </div>
+
+  <div class="ui-md-5 ui-md-offset-1">
+    <h2>My Customers</h2>
+    <ul class="customers">
+      <li *ngFor="let cust of customers">
+        <a routerLink="/customers/{{cust.id}}/edit">
+          <span class="badge">{{cust.id}}</span> {{cust.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<!--<p-dataTable [value]="customers">-->
+  <!--<p-column field="id" header="ID"></p-column>-->
+  <!--<p-column field="name" header="Name"></p-column>-->
+<!--</p-dataTable>-->
+
+<!--<input type="button" class="button" value="Add Customer" (click)="window.location.reload()">-->
+
+
+

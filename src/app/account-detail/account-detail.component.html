@@ -1,0 +1,94 @@
+<br>
+<div class="ui-g">
+  <div *ngIf="acc" class="ui-md-4 ui-md-offset-1 cont">
+    <h2>Update Account Details</h2>
+    <div><span>Account id: </span>{{ acc.id }}</div>
+      <div>
+          <div class="form-group">
+            <label for="customer_id">Customer Id</label>
+            <input type="text" class="form-control" id="customer_id" [readonly]="true" required
+                   [(ngModel)]="acc.customer_id" name="customer_id" #customerid/>
+
+            <label for="bal">Balance</label>
+            <input type="text" class="form-control" id="bal" [readonly]="true" required
+                   [(ngModel)]="acc.balance" name="balance" #bal/>
+
+            <label for="metaname">Meta name</label>
+            <input type="text" class="form-control" id="metaname" [readonly]="true" required
+                   [(ngModel)]="acc.meta_name" name="meta_name" #metaname/>
+
+            <label for="status">Status </label>
+              <input type="checkbox" class="form-control" id="status" required
+                     [(ngModel)]="acc.status" name="status" #status/>
+
+            <button (click)="activate_acc(acc)">Activate</button>
+            <button (click)="deactivate_acc(acc)">Dectivate</button>
+
+        </div>
+        <button (click)="goBack()">Go Back</button>
+      </div>
+  </div>
+
+<br>
+
+  <div class="ui-md-4 ui-md-offset-1 cont">
+    <h2>Deposit Account </h2>
+    <div>
+      <div class="form-group">
+
+        <label for="deposit_bal">Deposit Amount</label>
+        <input type="text" class="form-control" id="deposit_bal" required
+               [(ngModel)]="deposit_bal" name="deposit_bal" #bal/>
+
+        <button (click)="depositamount()">Deposit</button>
+
+      </div>
+      <button (click)="goBack()">Go Back</button>
+    </div>
+  </div>
+
+<br>
+
+  <div class="ui-md-4 ui-md-offset-1 cont">
+    <h2>Withdraw Account </h2>
+    <div>
+      <div class="form-group">
+
+        <label for="withdraw_bal">Withdraw Amount</label>
+        <input type="text" class="form-control" id="withdraw_bal" required
+               [(ngModel)]="withdraw_bal" name="withdraw_bal" #bal/>
+
+        <button (click)="withdrawamount()">Withdraw</button>
+
+      </div>
+      <button (click)="goBack()">Go Back</button>
+    </div>
+  </div>
+
+<br>
+<br>
+
+  <div class="ui-md-4 ui-md-offset-1 cont">
+    <h2>Transfer Account </h2>
+    <div>
+      <div class="form-group">
+
+        <label for="to_id">To Account</label>
+        <input type="text" class="form-control" id="to_id" required
+               [(ngModel)]="to_id" name="to_id" #toid/>
+
+        <label for="transfer_bal">Transfer Amount</label>
+        <input type="text" class="form-control" id="transfer_bal" required
+               [(ngModel)]="transfer_bal" name="transfer_bal" #bal/>
+
+        <button (click)="transferamount()">Transfer</button>
+
+      </div>
+      <button (click)="goBack()">Go Back</button>
+    </div>
+  </div>
+
+</div>
+
+<br>
+<br>

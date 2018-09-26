@@ -1,0 +1,13 @@
+<div class="search-component">
+  <h4> Serach </h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)">
+
+  <ul class="serach-result">
+   <li *ngFor="let hero of heros$ | async">
+     <a routerLink="/details/{{hero.id}}/edit">
+       {{hero.name}}
+     </a>
+   </li>
+  </ul>
+
+</div>

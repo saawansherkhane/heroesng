@@ -1,0 +1,48 @@
+<br>
+<div class="ui-g">
+  <div *ngIf="cust" class="ui-md-4 cont">
+    <h2>{{ cust.name | uppercase }} Update Details</h2>
+    <div class="form-group">
+
+      <label for="cust_id">Customer Id</label>
+      <input type="text" class="form-control" id="cust_id" [readonly]="true" required
+             [(ngModel)]="cust.id" name="cust_id" #custid/>
+
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required
+             [(ngModel)]="cust.name" name="name" #customername/>
+
+      <label for="name">Email</label>
+      <input type="text" class="form-control" id="email" required
+             [(ngModel)]="cust.email" name="email" #customeremail/>
+
+      <label for="name">Phone</label>
+      <input type="text" class="form-control" id="phone" required
+             [(ngModel)]="cust.phone" name="phone" #customerphone/>
+      <label>Status:
+        <input type="checkbox" [(ngModel)]="cust.status" place="status"/>
+      </label>
+      <button (click)="activation(cust)">Activate</button>
+      <button (click)="deactivation(cust)">Dectivate</button>
+    </div>
+
+    <button class="button" (click)="savecust()">Update</button>
+    <button class="button" (click)="goBack()">Go Back</button>
+  </div>
+
+  <div class="ui-md-7">
+
+    <div>
+      <ul>
+        <li>
+          <button (click)="createaccount()">Account</button>
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="accountcreate">
+        <app-accounts [customer_id] ="cust.id"></app-accounts>
+    </div>
+  </div>
+
+</div>

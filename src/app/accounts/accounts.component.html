@@ -1,0 +1,41 @@
+<div class="ui-g">
+  <div class="ui-md-6">
+    <h2>Account List</h2>
+    <ul class="accounts">
+      <li *ngFor="let acc of accounts">
+        <a routerLink="/accounts/{{customer_id}}/edit">
+          <span class="badge">{{acc.id}}</span> {{acc.meta_name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+  <div *ngIf = "accounts.length <= 0" class="ui-md-6 cont" [hidden]="submitted">
+    <h2>Add Account</h2>
+    <!--<form (ngSubmit)="onSubmit()" #branchForm="ngForm">-->
+    <div class="form-group">
+      <label for="customer_id">Customer Id</label>
+      <input type="text" class="form-control" id="customer_id" [readonly]="true" required
+             [(ngModel)]="customer_id" name="customer_id" #customerid/>
+      <br>
+      <label>Opening Date</label>
+      <p-calendar class="form-control" id="opened_date" required
+                  [(ngModel)]="opened_date" name="opened_date" #openeddate></p-calendar>
+      <br>
+      <br>
+      <label for="balance">Balance</label>
+      <input type="text" class="form-control" id="balance" required
+             [(ngModel)]="balance" name="balance" #bal/>
+
+      <label for="meta_name">Meta name</label>
+      <input type="text" class="form-control" id="meta_name" required
+             [(ngModel)]="meta_name" name="meta_name" #metaname/>
+
+    </div>
+    <button type="submit" class="button" (click)="onSubmitaccount()">Submit</button>
+    <!--<button type="button" class="btn btn-default" (click)="newHero(); branchForm.reset()">New Hero</button>-->
+    <!--</form>-->
+  </div>
+
+</div>
